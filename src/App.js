@@ -18,11 +18,10 @@ function App() {
 
   return (
     <Provider store={store}>
-    <div>
-      <Header />
-      <Body />
-
-    </div>
+      <div>
+        <Header />
+        <Body />
+      </div>
     </Provider>
   );
 }

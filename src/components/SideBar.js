@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 const SideBar = () => {
-
+ 
   const isMenuOpen = useSelector(store => store.nav.isMenuOpen);
 
   if(!isMenuOpen) {
@@ -10,7 +10,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className='shadow-2xl p-4 col-span-1 child:pt-2'>
+    <div className='shadow-2xl p-4 w-1/6 child:pt-2'>
       <div>
         <ul>
           <li>Home</li>
