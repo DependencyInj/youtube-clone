@@ -15,7 +15,7 @@ const Header = () => {
                 <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' alt='menu' src='https://static.vecteezy.com/system/resources/previews/002/292/406/non_2x/hamburger-menu-line-icon-free-vector.jpg' />
                 <img className='h-8 mx-2' alt='youtube-logo' src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1200px-YouTube_Logo_2017.svg.png'} />
             </div>
-            <div className='col-span-10 px-36'>
+            <div className='col-span-10 '>
                 <input className='w-96 border border-gray-400 p-1 px-4 rounded-l-full' type='text' />
                 <button className='border border-gray-400 p-3 rounded-r-full h-8'>
                     <img className='h-5' alt='search' src={search} />
