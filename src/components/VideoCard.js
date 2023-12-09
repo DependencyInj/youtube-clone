@@ -7,8 +7,8 @@ const VideoCard = ({video}) => {
 
   console.log("ssss", video);
   return (
-    <div className='m-5 child:hover:rounded-none w-96 cursor-pointer'>
-      <img className='rounded-xl  h-64' alt='thumbnail' src={thumbnails?.medium?.url} />
+    <div className='m-5 child:hover:rounded-none w-72 cursor-pointer'>
+      <img className='rounded-xl  h-52' alt='thumbnail' src={thumbnails?.medium?.url} />
       <ul className='child: py-2'>
         <li className='font-bold text-lg'>{title}</li>
         <li className="text-gray-400">{channelTitle}</li>

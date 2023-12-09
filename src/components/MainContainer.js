@@ -4,11 +4,13 @@ import VideoContainer from './VideoContainer'
 
 const MainContainer = () => {
   return (
-    <div className='w-fit'>
-        <ButtonList/>
+    <div className='flex justify-center'>
+      <div className='flex-col'>
+        <ButtonList />
         <VideoContainer />
+      </div>
     </div>
   )
 }
 
-export default MainContainer
+export default MainContainer;
