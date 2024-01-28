@@ -6,6 +6,8 @@ import { YOUTUBE_SEARCH_API } from '../utils/constants';
 
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
+    const [showSuggestions, setShowSuggestions] = useState(false);
     console.log(searchQuery);
 
     useEffect(() => {
@@ -19,7 +21,7 @@ const Header = () => {
         const result = await fetch(`${YOUTUBE_SEARCH_API}${searchQuery}`);
         const json = await result.json();
         console.log(json[1]);
-        return json[1];
+        setSuggestions(json[1]);
     }
 
     const dispatch = useDispatch();
@@ -35,23 +37,28 @@ const Header = () => {
             </div>
             <div>
                 <div className='flex w-auto'>
-                    <input className='border border-gray-400 rounded-l-full w-4/6 p-1'
+                    <input className='border px-3 border-gray-400 rounded-l-full w-4/6 p-1'
                         type='text'
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)} />
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onFocus={(e) => setShowSuggestions(true)}
+                        onBlur={(e) => setShowSuggestions(false)}
+                    />
                     <button className='border border-gray-400 rounded-r-full w-10 p-1'>
                         <img className='h-5' alt='search' src={search} />
                     </button>
                 </div>
-                <div className='absolute bg-white border-blue-700 border-solid border-2 w-[23rem] rounded-lg pl-2'>
-                    <ul >
-                        <li className='px-1 py-2 shadow-sm'> 🔍 Iphone pro</li>
-                        <li className='px-1 py-2 shadow-sm'> 🔍 Iphone pro</li>
-                        <li className='px-1 py-2 shadow-sm'> 🔍 Iphone pro</li>
-                        <li className='px-1 py-2 shadow-sm'> 🔍 Iphone pro</li>
-                        <li className='px-1 py-2 shadow-sm'> 🔍 Iphone pro</li>
-                    </ul>
-                </div>
+                {
+                    showSuggestions && suggestions?.length != 0 && (
+                        <div className='absolute bg-white shadow-lg border-b-slate-500-700 border-solid border-2 w-[23rem] rounded-lg py-2 px-2'>
+                            <ul>
+                                {
+                                    suggestions.map(s => <li key={s} className='py-2 px-3 shadow-sm hover:bg-gray-200'> 🔍 {s} </li>)
+                                }
+                            </ul>
+                        </div>)
+                }
+
             </div>
 
             <div className='col-span-1'>
