@@ -49,6 +49,21 @@ const comments = [
                     replies: [
                         {
                             name: 'user 2',
+                            comment: 'reply comment 1',
+                            replies: []
+                        },
+                        {
+                            name: 'user 3',
+                            comment: 'reply comment 2',
+                            replies: []
+                        },
+                        {
+                            name: 'user 2',
+                            comment: 'reply comment 3',
+                            replies: []
+                        },
+                        {
+                            name: 'user 3',
                             comment: 'reply comment 4',
                             replies: []
                         }
