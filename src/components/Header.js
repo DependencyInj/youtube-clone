@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import search from '../../src/assets/images/search-interface-symbol.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../utils/navSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
-import store from '../utils/store';
 import { cacheResults } from '../utils/searchCacheSlice';
+import { assigneSearchQuery } from '../utils/searchQuerySlice';
 
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
+
+    const listRef = useRef();
+    const searchInputRef = useRef();
+
 
     const searchCache = useSelector(store => store.search);
     console.log(searchQuery);
@@ -21,7 +25,7 @@ const Header = () => {
             } else {
                 getSearchSuggestions();
             }
-        },200);
+        }, 200);
         return () => {
             clearTimeout(timer);
         };
@@ -30,14 +34,17 @@ const Header = () => {
     const getSearchSuggestions = async () => {
         const result = await fetch(`${YOUTUBE_SEARCH_API}${searchQuery}`);
         const json = await result.json();
-        console.log(json[1]);
         setSuggestions(json[1]);
-        dispatch(cacheResults({[searchQuery]: json[1]}));
+        dispatch(cacheResults({ [searchQuery]: json[1] }));
     }
 
     const dispatch = useDispatch();
     const toggleMenuHandler = () => {
         dispatch(toggleMenu());
+    }
+
+    const setSearchQueryInStore = (q) => {
+        dispatch(assigneSearchQuery(q));
     }
 
     return (
@@ -48,7 +55,7 @@ const Header = () => {
             </div>
             <div>
                 <div className='flex w-auto'>
-                    <input className='border px-3 border-gray-400 rounded-l-full w-4/6 p-1'
+                    <input ref={searchInputRef} className='border px-3 border-gray-400 rounded-l-full w-4/6 p-1'
                         type='text'
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
@@ -60,11 +67,11 @@ const Header = () => {
                     </button>
                 </div>
                 {
-                    showSuggestions && suggestions?.length != 0 && (
+                    suggestions?.length !== 0 && (
                         <div className='absolute bg-white shadow-lg border-b-slate-500-700 border-solid border-2 w-[23rem] rounded-lg py-2 px-2'>
-                            <ul>
+                            <ul ref={listRef}>
                                 {
-                                    suggestions.map(s => <li key={s} className='py-2 px-3 shadow-sm hover:bg-gray-200'> 🔍 {s} </li>)
+                                    suggestions.map(s => <li key={s} id={'list-item' + s} onClick={() => setSearchQueryInStore(s)} className='py-2 px-3 shadow-sm hover:bg-gray-200'> 🔍 {s} </li>)
                                 }
                             </ul>
                         </div>)
