@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { YOUTUTBE_LIST_API } from '../utils/constants'
+import { YOUTUBE_LIST } from '../utils/constants'
 import VideoCard from './VideoCard';
 import { useSelector } from 'react-redux';
 
@@ -18,7 +18,7 @@ const VideoContainer = () => {
   }, [searchQuery]);
 
   const getVideos = async () => {
-    let url = YOUTUTBE_LIST_API;
+    let url = YOUTUBE_LIST;
     if(searchQuery.length > 0){
       url = `${url}&q=${searchQuery}`
     }
@@ -35,7 +35,7 @@ const VideoContainer = () => {
   return (
     <div className='flex flex-wrap'>
       {videos.map(item =>
-        <Link to={`watch?v=${item.id}`}>
+        <Link to={`watch?v=${item.id?.videoId}`}>
           <VideoCard key={item?.id} video={item} />
         </Link>
       )}

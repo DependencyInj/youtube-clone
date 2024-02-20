@@ -3,7 +3,7 @@ import React from 'react'
 const VideoCard = ({video}) => {
   const {snippet, statistics} = video;
   const {thumbnails, title, description, channelTitle} = snippet;
-  const {viewCount} = statistics;
+  // const {viewCount} = statistics;
 
   console.log("ssss", video);
   return (
@@ -12,7 +12,7 @@ const VideoCard = ({video}) => {
       <ul className='child: py-2'>
         <li className='font-bold text-lg'>{title}</li>
         <li className="text-gray-400">{channelTitle}</li>
-        <li>{viewCount} views</li>
+        {/* <li>{viewCount} views</li> */}
       </ul>
     </div>
   )
