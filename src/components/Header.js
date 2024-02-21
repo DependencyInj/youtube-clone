@@ -29,7 +29,7 @@ const Header = () => {
         return () => {
             clearTimeout(timer);
         };
-    }, [searchQuery])
+    }, [searchQuery]);
 
     const getSearchSuggestions = async () => {
         const result = await fetch(`${YOUTUBE_SEARCH_API}${searchQuery}`);
@@ -47,6 +47,13 @@ const Header = () => {
         dispatch(assigneSearchQuery(q));
     }
 
+    const clearSearchDropDown = () => {
+        const dropDownClearTimeout = setTimeout(() => {
+            setShowSuggestions(false);
+            clearTimeout(dropDownClearTimeout);
+        }, 200);
+    }
+
     return (
         <div className='grid grid-flow-col p-5 m-2 shadow-lg'>
             <div className='flex col-span-1'>
@@ -60,18 +67,18 @@ const Header = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         onFocus={(e) => setShowSuggestions(true)}
-                        onBlur={(e) => setShowSuggestions(false)}
+                        onBlur={(e) => clearSearchDropDown(false)}
                     />
                     <button className='border border-gray-400 rounded-r-full w-10 p-1'>
                         <img className='h-5' alt='search' src={search} />
                     </button>
                 </div>
                 {
-                    suggestions?.length !== 0 && (
+                    showSuggestions && suggestions?.length !== 0 && (
                         <div className='absolute bg-white shadow-lg border-b-slate-500-700 border-solid border-2 w-[23rem] rounded-lg py-2 px-2'>
                             <ul ref={listRef}>
                                 {
-                                    suggestions.map(s => <li key={s} id={'list-item' + s} onClick={() => setSearchQueryInStore(s)} className='py-2 px-3 shadow-sm hover:bg-gray-200'> 🔍 {s} </li>)
+                                    suggestions.map(s => <li key={s} id={'list-item' + s} onClick={() => setSearchQueryInStore(s)} className='py-2 px-3 cursor-pointer shadow-sm hover:bg-gray-200'> 🔍 {s} </li>)
                                 }
                             </ul>
                         </div>)
