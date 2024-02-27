@@ -1,3 +1,4 @@
+import chatSlice from "./chatSlice";
 import navSlice from "./navSlice";
 import searchCacheSlice from "./searchCacheSlice";
 import searchQuerySlice from "./searchQuerySlice";
@@ -8,7 +9,8 @@ const store = configureStore({
     reducer: {
         nav: navSlice,
         search: searchCacheSlice,
-        searchQuery: searchQuerySlice
+        searchQuery: searchQuerySlice,
+        liveChat: chatSlice
     }
 });
 

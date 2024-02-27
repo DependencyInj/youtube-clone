@@ -20,7 +20,7 @@ const WatchPage = () => {
         <div>
           <iframe className="rounded-xl" width="900" height="500" src={`https://www.youtube.com/embed/${urlSearchParams.get("v")}?si=9JFYb3BLXqVJLTdf`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
         </div>
-        <div className='ml-2 p-2 bg-slate-300 w-full border border-b-slate-300 rounded-lg'>
+        <div className='w-full'>
           <LiveChat/>
         </div>
       </div>
