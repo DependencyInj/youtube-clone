@@ -5,6 +5,7 @@ import { toggleMenu } from '../utils/navSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchCacheSlice';
 import { assigneSearchQuery } from '../utils/searchQuerySlice';
+import menuIcon from '../assets/images/burger-menu-svgrepo-com.svg';
 
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -58,7 +59,7 @@ const Header = () => {
         <div className='grid grid-flow-col pl-10 pr-10 pt-5 pb-10 sticky top-0 bg-white'>
             <div className='col-span-1'>
                 <div className='flex'>
-                    <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' alt='menu' src='https://static.vecteezy.com/system/resources/previews/002/292/406/non_2x/hamburger-menu-line-icon-free-vector.jpg' />
+                    <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' alt='menu' src={menuIcon} />
                     <img className='h-8 mx-2' alt='youtube-logo' src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1200px-YouTube_Logo_2017.svg.png'} />
                 </div>
             </div>
