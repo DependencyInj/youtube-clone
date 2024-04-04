@@ -17,7 +17,6 @@ const Header = () => {
 
 
     const searchCache = useSelector(store => store.search);
-    console.log(searchQuery);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -46,6 +45,7 @@ const Header = () => {
 
     const setSearchQueryInStore = (q) => {
         dispatch(assigneSearchQuery(q));
+        setSearchQuery(q);
     }
 
     const clearSearchDropDown = () => {
@@ -68,7 +68,7 @@ const Header = () => {
                     <input ref={searchInputRef} className='border px-3 border-gray-400 rounded-l-full w-4/6 p-1'
                         type='text'
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) => {setSearchQuery(e.target.value); }}
                         onFocus={(e) => setShowSuggestions(true)}
                         onBlur={(e) => clearSearchDropDown(false)}
                     />

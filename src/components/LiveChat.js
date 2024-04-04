@@ -39,12 +39,14 @@ const LiveChat = () => {
                 }));
                 setMessage("");
             }}>
-                <input className="w-[200px] border border-black" type="text"
-                    value={message}
-                    onChange={(e) => {
-                        setMessage(e.target.value);
-                    }} />
-                <button className="bg-slate-300">Send</button>
+                <div className="w-full px-2 py-2 h-3">
+                    <input className="w-[460px] h-[30px] mr-1 border border-none px-3 bg-slate-200 rounded-lg border-black" type="text"
+                        value={message}
+                        onChange={(e) => {
+                            setMessage(e.target.value);
+                        }} />
+                    <button className="bg-slate-300 h-[30px] w-[100px]">Send</button>
+                </div>
             </form>
         </div>
 
