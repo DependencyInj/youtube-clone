@@ -6,8 +6,12 @@ import { Outlet } from 'react-router-dom'
 const Body = () => {
     return (
         <div className='flex'>
-            <SideBar />
-            <Outlet />
+            <div className='h-screen'>
+                <SideBar />
+            </div>
+            <div className='overflow-scroll'>
+                <Outlet />
+            </div>
         </div>
     )
 }

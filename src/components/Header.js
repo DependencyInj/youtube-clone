@@ -56,7 +56,7 @@ const Header = () => {
     }
 
     return (
-        <div className='grid grid-flow-col pl-10 pr-10 pt-5 pb-10 sticky top-0 bg-white'>
+        <div className='grid grid-flow-col pl-10 pr-10 pt-5 pb-3 sticky top-0 bg-white'>
             <div className='col-span-1'>
                 <div className='flex'>
                     <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' alt='menu' src={menuIcon} />
@@ -94,4 +94,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
