@@ -6,7 +6,6 @@ const MainContainer = () => {
   return (
     <div className='flex justify-center'>
       <div className='flex-col'>
-        <ButtonList />
         <VideoContainer />
       </div>
     </div>
