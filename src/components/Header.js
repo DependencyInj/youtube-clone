@@ -118,7 +118,6 @@ const Header = () => {
           />
         </div>
       </div>
-      <ButtonList />
     </>
   );
 };

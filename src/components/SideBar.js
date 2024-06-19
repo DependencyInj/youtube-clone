@@ -11,7 +11,7 @@ const SideBar = () => {
   const isMenuOpen = useSelector(store => store.nav.isMenuOpen);
 
   return (
-    <div className='shadow-2xl p-1 w-[100px] child:pt-2 text-[10px] h-full  '>
+    <div className='shadow-2xl p-1 w-[100px] child:pt-2 text-[10px]'>
       <div>
         <ul>
           <Link to={"/"}>
@@ -71,9 +71,6 @@ const SideBar = () => {
           </div>
         </div>
       }
-
-
-
     </div>
   )
 }
