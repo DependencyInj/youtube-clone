@@ -7,18 +7,15 @@ import ButtonList from "./ButtonList";
 const Body = () => {
   return (
     <div className="flex flex-col">
-      <div className="">
+      <div className="sticky top-0">
         <Header />
-        <div className="flex">
-          <div className="flex">
-            <SideBar />
-            <div>
-              <ButtonList />
-              <div className="overflow-scroll">
-                <Outlet />
-              </div>
-            </div>
-          </div>
+      </div>
+      <div className="flex">
+        <div className="top-[50]">
+          <SideBar />
+        </div>
+        <div>
+          <Outlet />
         </div>
       </div>
     </div>
