@@ -10,12 +10,22 @@ const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.nav.isMenuOpen);
 
   return (
-    <aside className="shadow-2xl p-1 w-[100px] child:pt-2 text-[10px] h-screen sticky top-[60px]">
+    <aside
+      className={`shadow-2xl p-1 ${
+        isMenuOpen ? "w-[150px]" : "w-[100px]"
+      } child:pt-2 text-[10px] h-screen sticky top-[20px]`}
+    >
       <div>
         <ul>
           <Link to={"/"}>
-            <li className="flex justify-center align-middle my-8 mx-5">
-              <div className="flex flex-col gap-2">
+            <li
+              className={`flex ${
+                isMenuOpen ? "justify-start" : "justify-center"
+              } align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer`}
+            >
+              <div
+                className={`flex ${isMenuOpen ? "flex-row" : "flex-col"} gap-2`}
+              >
                 <img
                   alt="home"
                   className="ml-auto mr-auto w-[24px] h-[24px]"
@@ -25,8 +35,14 @@ const SideBar = () => {
               </div>
             </li>
           </Link>
-          <li className="flex justify-center align-middle my-8 mx-5">
-            <div className="flex flex-col gap-2">
+          <li
+            className={`flex ${
+              isMenuOpen ? "justify-start" : "justify-center"
+            } align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer`}
+          >
+            <div
+              className={`flex ${isMenuOpen ? "flex-row" : "flex-col"} gap-2`}
+            >
               <img
                 alt="home"
                 className="ml-auto mr-auto w-[24px] h-[24px]"
@@ -35,8 +51,14 @@ const SideBar = () => {
               <span className="text-[13px]">Shorts</span>
             </div>
           </li>
-          <li className="flex justify-center align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer">
-            <div className="flex flex-col gap-2">
+          <li
+            className={`flex ${
+              isMenuOpen ? "justify-start" : "justify-center"
+            } align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer`}
+          >
+            <div
+              className={`flex ${isMenuOpen ? "flex-row" : "flex-col"} gap-2`}
+            >
               <img
                 alt="home"
                 className="ml-auto mr-auto w-[24px] h-[24px]"
@@ -45,8 +67,14 @@ const SideBar = () => {
               <span className="text-[13px]">Subscriptions</span>
             </div>
           </li>
-          <li className="flex justify-center align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer">
-            <div className="flex flex-col gap-2">
+          <li
+            className={`flex ${
+              isMenuOpen ? "justify-start" : "justify-center"
+            } align-middle py-8 px-5 hover:bg-slate-200 hover:rounded-lg hover:cursor-pointer`}
+          >
+            <div
+              className={`flex ${isMenuOpen ? "flex-row" : "flex-col"} gap-2`}
+            >
               <img
                 alt="home"
                 className="ml-auto mr-auto w-[24px] h-[24px]"
