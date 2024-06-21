@@ -85,34 +85,7 @@ const SideBar = () => {
           </li>
         </ul>
       </div>
-      {isMenuOpen && (
-        <div>
-          <div>
-            <hr className="bg-slate-500" />
-          </div>
-          <div>
-            <h2 className="font-bold">Subscriptions</h2>
-            <ul>
-              <li>Trending</li>
-              <li>Shopping</li>
-              <li>Music</li>
-              <li>Films</li>
-            </ul>
-          </div>
-          <div>
-            <hr className="bg-slate-500" />
-          </div>
-          <div>
-            <h2 className="font-bold">Explore</h2>
-            <ul>
-              <li>Trending</li>
-              <li>Shopping</li>
-              <li>Music</li>
-              <li>Films</li>
-            </ul>
-          </div>
-        </div>
-      )}
+      
     </aside>
   );
 };
