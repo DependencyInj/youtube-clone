@@ -13,7 +13,7 @@ const SideBar = () => {
     <aside
       className={`shadow-2xl p-1 ${
         isMenuOpen ? "w-[150px]" : "w-[100px]"
-      } child:pt-2 text-[10px] h-screen sticky top-[20px]`}
+      } child:pt-2 text-[10px] h-screen`}
     >
       <div>
         <ul>

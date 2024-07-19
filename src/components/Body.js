@@ -2,22 +2,22 @@ import React from "react";
 import SideBar from "./SideBar";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import ButtonList from "./ButtonList";
 
 const Body = () => {
   return (
-    <div class="flex flex-wrap">
-      <div class="w-[90%]">
-        <div className="sticky-top top-0">
-          <Header />
+    <div>
+      <Header />
+      <div className="flex">
+        <div className="fixed inline-block bg-white">
+          <SideBar />
         </div>
-        <div class="w-[10%] h-screen">
-          <div className="flex">
-            <div>
-              <SideBar />
-            </div>
-            <div className="w-full">
-              <Outlet />
-            </div>
+        <div className="ml-[7%]">
+          <div className="fixed w-full bg-white">
+            <ButtonList />
+          </div>
+          <div className="mt-[3%]">
+            <Outlet />
           </div>
         </div>
       </div>

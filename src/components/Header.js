@@ -57,7 +57,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-white sticky top-0">
         <div className="grid grid-flow-col pl-10 pr-10 pt-5 pb-3  bg-white">
           <div className="col-span-1">
             <div className="flex">
@@ -119,9 +119,7 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="ml-[115px]">
-          <ButtonList />
-        </div>
+        
       </div>
     </>
   );
