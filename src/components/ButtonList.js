@@ -3,7 +3,7 @@ import Button from './Button'
 
 function ButtonList() {
   return (
-    <div className='flex'>
+    <div className='flex pl-4'>
       <Button name="All" />
       <Button name="Gaming"/>
       <Button name="Live" />
